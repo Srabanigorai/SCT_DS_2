@@ -1,0 +1,14 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+df =pd.read_csv("C:\\Users\\WIN-10\\Downloads\\titanic3.csv")
+top_10_aged = df[['name', 'age', 'sex', 'pclass', 'survived']].sort_values(by='age', ascending=False).head(10)
+sns.set(style="whitegrid")
+plt.figure(figsize=(12, 6))
+sns.barplot(data=top_10_aged, x='age', y='name', hue='survived', palette='colorblind')
+plt.title('Top 10 Oldest Passengers on the Titanic', fontsize=16)
+plt.xlabel('Age')
+plt.ylabel('Passenger Name')
+plt.legend(title='Survived', labels=['No', 'Yes'])
+plt.tight_layout()
+plt.show()
