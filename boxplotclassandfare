@@ -1,0 +1,14 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+df =pd.read_csv("C:\\Users\\WIN-10\\Downloads\\titanic3.csv")
+sns.set(style="whitegrid")
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='pclass', y='fare', hue='survived', data=df, palette='Set2')
+plt.title('Fare Distribution by Class and Survival', fontsize=16)
+plt.xlabel('Passenger Class')
+plt.ylabel('Fare')
+plt.legend(title='Survived', labels=['No', 'Yes'])
+plt.ylim(0, 300)
+plt.tight_layout()
+plt.show()
