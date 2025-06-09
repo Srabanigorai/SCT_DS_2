@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+df =pd.read_csv("C:\\Users\\WIN-10\\Downloads\\titanic3.csv")
+sns.set(style="whitegrid")
+plt.figure(figsize=(10, 6))
+sns.histplot(df['age'].dropna(), bins=30, kde=True, color='skyblue')
+plt.title('Distribution of Passenger Ages on the Titanic', fontsize=16)
+plt.xlabel('Age')
+plt.ylabel('Number of Passengers')
+plt.tight_layout()
+plt.show()
