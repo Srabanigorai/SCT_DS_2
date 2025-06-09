@@ -1,0 +1,26 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+df =pd.read_csv("C:\\Users\\WIN-10\\Downloads\\titanic3.csv")
+print(df)
+df.head(10)
+df.info()
+df.describe()
+df.nunique()
+df.isnull().sum()
+df.dropna()
+q1=df['fare'].quantile(0.25)
+print(q1)
+q2=df['fare'].quantile(0.75)
+print(q2)
+IQR=q2-q1
+print(IQR)
+lower_bound=q1-1.5*IQR
+print(lower_bound)
+Upper_bound=q2+1.5*IQR
+print(Upper_bound)
+outlier=df[(df['fare']<lower_bound)|(df['fare']>Upper_bound)]
+print(outlier)
+sns.boxplot(df)
+plt.show()
