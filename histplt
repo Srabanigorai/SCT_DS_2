@@ -1,0 +1,14 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+df =pd.read_csv("C:\\Users\\WIN-10\\Downloads\\titanic3.csv")
+df['family_size'] = df['sibsp'] + df['parch']
+sns.set(style="whitegrid")
+plt.figure(figsize=(10, 6))
+sns.histplot(data=df, x='family_size', hue='survived', multiple='stack', bins=15, palette='pastel')
+plt.title('Survival Count Based on Family Size', fontsize=16)
+plt.xlabel('Family Size (Siblings/Spouses + Parents/Children)')
+plt.ylabel('Number of Passengers')
+plt.legend(title='Survived', labels=['No', 'Yes'])
+plt.tight_layout()
+plt.show()
