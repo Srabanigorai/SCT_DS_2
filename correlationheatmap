@@ -1,0 +1,14 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df =pd.read_csv("C:\\Users\\WIN-10\\Downloads\\titanic3.csv")
+age_fare_df = df[['age', 'fare']].dropna()
+correlation = age_fare_df.corr()
+print("Correlation between Age and Fare:")
+print(correlation)
+sns.set(style="white")
+plt.figure(figsize=(6, 4))
+sns.heatmap(correlation, annot=True, cmap='mako', fmt=".2f", square=True, linewidths=0.5)
+plt.title('Correlation Heatmap: Age vs Fare', fontsize=14)
+plt.tight_layout()
+plt.show()
